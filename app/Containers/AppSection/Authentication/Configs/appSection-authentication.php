@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'require_email_verification' => false,
+    'require_email_verification' => true,
     'verification_link_expiration_time' => 30, // in minute
 
     /*
@@ -100,7 +100,7 @@ return [
     |
     */
     'allowed-reset-password-urls' => [
-        env('APP_URL', 'http://api.apiato.test/v1') . '/password/reset',
+        env('APP_URL', 'http://familiasm.local/v1') . '/reset-password',
     ],
 
     /*
@@ -112,6 +112,6 @@ return [
     |
 */
     'allowed-verify-email-urls' => [
-        env('APP_URL', 'http://api.apiato.test/v1') . '/email/verify',
+        env('APP_URL', 'http://familiasm.local') . '/email/verify',
     ],
 ];
