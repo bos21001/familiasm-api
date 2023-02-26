@@ -112,6 +112,6 @@ return [
     |
 */
     'allowed-verify-email-urls' => [
-        env('APP_URL', 'http://familiasm.local') . '/email/verify',
+        'http://react.familiasm.local/email/verify',
     ],
 ];
