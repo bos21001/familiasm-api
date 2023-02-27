@@ -100,7 +100,7 @@ return [
     |
     */
     'allowed-reset-password-urls' => [
-        env('APP_URL', 'http://familiasm.local/v1') . '/reset-password',
+	'http://react.familiasm.local/reset-password',
     ],
 
     /*
