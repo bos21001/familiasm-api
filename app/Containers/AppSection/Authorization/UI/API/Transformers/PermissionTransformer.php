@@ -23,6 +23,7 @@ class PermissionTransformer extends ParentTransformer
             'name' => $permission->name, // << Unique Identifier
             'description' => $permission->description,
             'display_name' => $permission->display_name,
+            'guard_name' => $permission->guard_name,
         ];
     }
 }
