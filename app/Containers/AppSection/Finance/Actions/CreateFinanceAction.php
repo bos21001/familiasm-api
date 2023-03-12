@@ -20,9 +20,20 @@ class CreateFinanceAction extends ParentAction
     public function run(CreateFinanceRequest $request): Finance
     {
         $data = $request->sanitizeInput([
-            // add your request data here
+            'group_id',
+            'name',
+            'type',
+            'value',
+            'description',
+            'repeats' => false,
+            'business_day_only' => false,
+            'repeat_every',
+            'repetition_period',
+            'ends' => today(),
         ]);
 
-        return app(CreateFinanceTask::class)->run($data);
+        $user_id = $request->user()["id"];
+
+        return app(CreateFinanceTask::class)->run($data, $user_id);
     }
 }

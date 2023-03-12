@@ -19,9 +19,10 @@ class CreateFinanceTask extends ParentTask
     /**
      * @throws CreateResourceFailedException
      */
-    public function run(array $data): Finance
+    public function run(array $data, $user_id): Finance
     {
         try {
+            $data["user_id"] = $user_id;
             $finance = $this->repository->create($data);
             FinanceCreatedEvent::dispatch($finance);
 

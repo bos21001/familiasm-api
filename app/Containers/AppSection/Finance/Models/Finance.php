@@ -13,6 +13,7 @@ class Finance extends ParentModel
         'user_id',
         'group_id',
         'name',
+        'type',
         'value',
         'description',
         'repeats',

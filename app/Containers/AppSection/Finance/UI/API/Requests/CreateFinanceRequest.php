@@ -35,7 +35,15 @@ class CreateFinanceRequest extends ParentRequest
     public function rules(): array
     {
         return [
-            // 'id' => 'required',
+            'name' => 'required|min:2|max:60',
+            'type' => 'required|in:debt,income',
+            'value' => 'required|gte:0',
+            'description' => 'max:300',
+            'repeats' => 'boolean',
+            'business_day_only' => 'boolean',
+            'repeat_every' => 'gte:1',
+            'repetition_period' => 'in:day,week,month,year',
+            'ends' => 'date|after_or_equal:today'
         ];
     }
 
