@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('name')->nullable();
             $table->string('type')->nullable();
             $table->float('value')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->boolean('repeats')->nullable();
             $table->boolean('business_day_only')->nullable();
             $table->integer('repeat_every')->nullable();
