@@ -12,13 +12,14 @@ return new class extends Migration {
     {
         Schema::create('finances', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable();
             $table->integer('group_id')->nullable();
-            $table->string('name');
-            $table->float('value');
+            $table->string('name')->nullable();
+            $table->string('type')->nullable();
+            $table->float('value')->nullable();
             $table->string('description')->nullable();
-            $table->boolean('repeats');
-            $table->boolean('business_day_only');
+            $table->boolean('repeats')->nullable();
+            $table->boolean('business_day_only')->nullable();
             $table->integer('repeat_every')->nullable();
             $table->string('repetition_period')->nullable();
             $table->timestamp('ends')->nullable();
@@ -27,26 +28,26 @@ return new class extends Migration {
 
         Schema::create('finance_historys', function (Blueprint $table) {
             $table->id();
-            $table->integer('finance_id');
-            $table->integer('user_id');
-            $table->float('value');
-            $table->timestamp('date');
-            $table->string('action');
+            $table->integer('finance_id')->nullable();
+            $table->integer('user_id')->nullable();
+            $table->float('value')->nullable();
+            $table->timestamp('date')->nullable();
+            $table->string('action')->nullable();
             $table->string('description')->nullable();
             $table->timestamps();
         });
 
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->string('name');
+            $table->integer('user_id')->nullable();
+            $table->string('name')->nullable();
             $table->integer('description')->nullable();
             $table->timestamps();
         });
 
         Schema::create('group_users', function (Blueprint $table) {
-            $table->integer('group_id');
-            $table->integer('user_id');
+            $table->integer('group_id')->nullable();
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         });
     }
