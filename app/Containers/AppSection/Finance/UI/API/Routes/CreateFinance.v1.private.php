@@ -40,7 +40,10 @@
  *          "repeat_every": 1,
  *          "repetition_period": "month",
  *          "ends": "2023-09-01",
- *          "readable_created_at": "1 second ago"
+ *          "created_at": "2023-03-12T04:26:07.000000Z",
+ *          "updated_at": "2023-03-14T01:24:04.000000Z",
+ *          "readable_created_at": "1 day ago",
+ *          "readable_updated_at": "1 second ago",
  *      },
  *      "meta": {
  *          "include": [],

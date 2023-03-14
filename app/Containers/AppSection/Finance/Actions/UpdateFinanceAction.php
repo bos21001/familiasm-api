@@ -22,7 +22,16 @@ class UpdateFinanceAction extends ParentAction
     public function run(UpdateFinanceRequest $request): Finance
     {
         $data = $request->sanitizeInput([
-            // add your request data here
+            'group_id',
+            'name',
+            'type',
+            'value',
+            'description',
+            'repeats',
+            'business_day_only',
+            'repeat_every',
+            'repetition_period',
+            'ends',
         ]);
 
         return app(UpdateFinanceTask::class)->run($data, $request->id);

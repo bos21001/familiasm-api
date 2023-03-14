@@ -30,14 +30,14 @@ class FinanceTransformer extends ParentTransformer
             'repeat_every' => $finance->repeat_every,
             'repetition_period' => $finance->repetition_period,
             'ends' => $finance->ends,
+            'created_at' => $finance->created_at,
+            'updated_at' => $finance->updated_at,
             'readable_created_at' => $finance->created_at->diffForHumans(),
+            'readable_updated_at' => $finance->updated_at->diffForHumans(),
         ];
 
         return $this->ifAdmin([
             'real_id' => $finance->id,
-            'created_at' => $finance->created_at,
-            'updated_at' => $finance->updated_at,
-            'readable_updated_at' => $finance->updated_at->diffForHumans(),
         ], $response);
     }
 }

@@ -35,7 +35,7 @@ class DeleteFinanceRequest extends ParentRequest
     public function rules(): array
     {
         return [
-            // 'id' => 'required'
+            'id' => 'required'
         ];
     }
 

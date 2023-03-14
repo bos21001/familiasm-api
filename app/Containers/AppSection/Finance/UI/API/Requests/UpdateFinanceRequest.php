@@ -35,7 +35,16 @@ class UpdateFinanceRequest extends ParentRequest
     public function rules(): array
     {
         return [
-            // 'id' => 'required'
+            'id' => 'required',
+            'name' => 'min:2|max:60',
+            'type' => 'in:debt,income',
+            'value' => 'gte:0',
+            'description' => 'max:300',
+            'repeats' => 'boolean',
+            'business_day_only' => 'boolean',
+            'repeat_every' => 'gte:1',
+            'repetition_period' => 'in:day,week,month,year',
+            'ends' => 'date|after_or_equal:today'
         ];
     }
 
