@@ -4,7 +4,7 @@ namespace App\Containers\AppSection\Finance\UI\API\Requests;
 
 use App\Ship\Parents\Requests\Request as ParentRequest;
 
-class GetAllFinancesRequest extends ParentRequest
+class GetAllActualUserFinancesRequest extends ParentRequest
 {
     /**
      * Define which Roles and/or Permissions has access to this request.

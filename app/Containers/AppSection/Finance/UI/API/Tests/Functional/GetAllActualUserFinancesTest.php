@@ -7,12 +7,12 @@ use App\Containers\AppSection\Finance\UI\API\Tests\ApiTestCase;
 use Illuminate\Testing\Fluent\AssertableJson;
 
 /**
- * Class GetAllFinancesTest.
+ * Class GetAllActualUserFinancesTest.
  *
  * @group finance
  * @group api
  */
-class GetAllFinancesTest extends ApiTestCase
+class GetAllActualUserFinancesTest extends ApiTestCase
 {
     protected string $endpoint = 'get@v1/finances';
 
@@ -21,7 +21,7 @@ class GetAllFinancesTest extends ApiTestCase
         'roles' => '',
     ];
 
-    public function testGetAllFinancesByAdmin(): void
+    public function testGetAllActualUserFinancesByAdmin(): void
     {
         $this->getTestingUserWithoutAccess(createUserAsAdmin: true);
         Finance::factory()->count(2)->create();
@@ -38,7 +38,7 @@ class GetAllFinancesTest extends ApiTestCase
     // add some roles and permissions to this route's request
     // then add them to the $access array above
     // uncomment this test to test accesses
-//    public function testGetAllFinancesByNonAdmin(): void
+//    public function testGetAllActualUserFinancesByNonAdmin(): void
 //    {
 //        $this->getTestingUserWithoutAccess();
 //        Finance::factory()->count(2)->create();

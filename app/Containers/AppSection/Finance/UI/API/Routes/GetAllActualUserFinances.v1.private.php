@@ -2,10 +2,10 @@
 
 /**
  * @apiGroup           Finance
- * @apiName            GetAllFinances
+ * @apiName            GetAllActualUserFinances
  *
  * @api                {GET} /v1/finances Get All Finances
- * @apiDescription     Lists all finances entries
+ * @apiDescription     Lists all finances entries of the actual requesting user
  *
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated ['permissions' => '', 'roles' => '']
@@ -55,9 +55,9 @@
  * }
  */
 
-use App\Containers\AppSection\Finance\UI\API\Controllers\GetAllFinancesController;
+use App\Containers\AppSection\Finance\UI\API\Controllers\GetAllActualUserFinancesController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('finances', [GetAllFinancesController::class, 'getAllFinances'])
+Route::get('finances', [GetAllActualUserFinancesController::class, 'getAllActualUserFinances'])
     ->middleware(['auth:api']);
 
