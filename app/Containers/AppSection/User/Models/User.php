@@ -5,9 +5,11 @@ namespace App\Containers\AppSection\User\Models;
 use App\Containers\AppSection\Authentication\Notifications\VerifyEmail;
 use App\Containers\AppSection\Authentication\Traits\AuthenticationTrait;
 use App\Containers\AppSection\Authorization\Traits\AuthorizationTrait;
+use App\Containers\AppSection\Finance\Models\Finance;
 use App\Ship\Contracts\MustVerifyEmail;
 use App\Ship\Parents\Models\UserModel as ParentUserModel;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Validation\Rules\Password;
 
@@ -54,5 +56,10 @@ class User extends ParentUserModel implements MustVerifyEmail
         return new Attribute(
             get: fn (string $value): string => strtolower($value),
         );
+    }
+
+    public function finances(): HasMany
+    {
+        return $this->hasMany(Finance::class);
     }
 }
