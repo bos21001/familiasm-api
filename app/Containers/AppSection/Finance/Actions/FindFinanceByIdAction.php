@@ -15,6 +15,12 @@ class FindFinanceByIdAction extends ParentAction
      */
     public function run(FindFinanceByIdRequest $request): Finance
     {
-        return app(FindFinanceByIdTask::class)->run($request->id);
+        $data = [
+            "id" => $request->id,
+            "user_id" => $request->encode($request->user()->id),
+            "limit" => $request->get("limit", $_ENV["PAGINATION_LIMIT_DEFAULT"])
+        ];
+
+        return app(FindFinanceByIdTask::class)->run($data);
     }
 }
