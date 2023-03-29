@@ -34,6 +34,11 @@ class UpdateFinanceAction extends ParentAction
             'ends',
         ]);
 
-        return app(UpdateFinanceTask::class)->run($data, $request->id);
+        $ids = [
+            "id" => $request->id,
+            "user_id" => $request->encode($request->user()->id)
+        ];
+
+        return app(UpdateFinanceTask::class)->run($data, $ids);
     }
 }
