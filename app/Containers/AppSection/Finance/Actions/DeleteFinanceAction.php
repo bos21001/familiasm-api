@@ -18,6 +18,11 @@ class DeleteFinanceAction extends ParentAction
      */
     public function run(DeleteFinanceRequest $request): int
     {
-        return app(DeleteFinanceTask::class)->run($request->id);
+        $data = [
+            "id" => $request->id,
+            "user_id" => $request->encode($request->user()->id)
+        ];
+
+        return app(DeleteFinanceTask::class)->run($data);
     }
 }
