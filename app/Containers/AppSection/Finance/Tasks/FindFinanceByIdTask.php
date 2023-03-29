@@ -49,8 +49,8 @@ class FindFinanceByIdTask extends ParentTask
                 ->first();
 
             // Throw an exception if the Finance record is not found or the "user_id" does not match
-            if (is_null($finance)) {
-                throw new NotAuthorizedResourceException();
+            if (!$finance) {
+                throw new  NotFoundException();
             }
 
             // Dispatch the FinanceFoundByIdEvent
@@ -58,8 +58,6 @@ class FindFinanceByIdTask extends ParentTask
 
             // Return the Finance object if found
             return $finance;
-        } catch (NotAuthorizedResourceException) {
-            throw new NotAuthorizedResourceException();
         } catch (Exception) {
             throw new NotFoundException();
         }
